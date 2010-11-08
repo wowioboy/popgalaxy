@@ -1,0 +1,76 @@
+{% extends "base_subpage.html" %}
+{% load pagination_tags %}
+
+{% block pagetitle %}Pop Galaxy : Search : {{ search_term }} {% endblock %}
+
+{% block adblock %}
+	{% include "inc/adbox_search_top.html" %}
+{% endblock %}
+
+{% block content %}
+<!--BEGIN MAIN COLUMN CONTENT-->
+<div id="maincol">
+
+<!-- START BLOG ENTRIES LIST -->
+<div id="searchResultsList">
+	
+	<div class="resultsTitle">search results</div>
+
+	<div id="resultsHeader">
+		Searching For: "{{ search_term }}"<br/>
+		Videos Found: {{ videos.count }}<br/>
+		Blogs Found: {{ entries.count }}<br/><br/>
+	</div>
+	
+	<div class="searchResults">
+	<div class="resultsTitle">blogs</div>
+	{% if entries|length %}
+
+	{% autopaginate entries 12 %}
+	{% for entry in entries %}
+	<div class="blogResultSet">
+		<div class="entryThumb"><a href="/blog{{ entry.get_absolute_url }}"><img src="{{ entry.thumbnail.thumb_url }}"></a></div>
+		<div class="entryTitle"><a href="/blog{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
+		<div class="entryDate">{{ entry.pub_date|date:"m/d/Y" }}</div>
+		<div class="entryDetails">{{ entry.leadin_html|safe }}<span class="readMore"><a href="/blog{{ entry.get_absolute_url }}">read more</a></span></div>		
+	</div>
+	{% endfor %}
+	{% paginate %}
+
+	{% else %}
+	<div class="emptyResultSet">
+		No Blog Entries Were Found For: "{{ search_term }}"
+	</div>
+	{% endif %}
+	</div>
+	
+	<div class="searchResults">
+	<div class="resultsTitle">videos</div>
+	{% if videos|length %}
+	{% autopaginate entries 12 %}
+	{% for video in videos %}
+	<div class="videoResultSet">
+		<div class="videoThumb"><a href="/video/{{ video.get_absolute_url }}{{ video.slug }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>
+		<div class="videoTitle"><a href="/video/{{ video.get_absolute_url }}{{ video.slug }}">{{ video.title }}</a></div>
+		<div class="videoDurationLabel">duration: <span class="videoDuration">{{ video.duration }}</span></div>
+	</div>
+	{% endfor %}
+	{% paginate %}
+	
+	{% else %}
+	<div class="emptyResultSet">
+		No Videos Found For: "{{ search_term }}"
+	</div>
+	<br/>
+	{% endif %}
+	
+	</div>
+	
+</div><!-- END BLOG ENTRIES LIST -->
+
+{% endblock %}
+
+
+{% block sideadblock %}
+	{% include "inc/adbox_search_sidebar.html" %}
+{% endblock %}

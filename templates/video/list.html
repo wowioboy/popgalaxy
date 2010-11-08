@@ -1,0 +1,35 @@
+{% extends "base_video_list.html" %}
+{% load pagination_tags %}
+
+{% block pagetitle %}Pop Galaxy : Video {% endblock %}
+
+{% block adblock %}
+	{% include "inc/adbox_video_top.html" %}
+{% endblock %}
+
+
+{% block content %}
+<!--BEGIN MAIN COLUMN CONTENT-->
+<div id="maincol">
+
+<!-- START VIDEO LIST -->
+<div id="videoList">
+		<div class="resultsTitle">Videos</div>
+
+		{% autopaginate videos 12 %}
+		{% for video in videos %}
+		<div class="videoItem">
+			<div class="videoThumb"><a href="{{ video.get_absolute_url }}{{ video.slug }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>
+			<div class="videoTitle"><a href="{{ video.get_absolute_url }}{{ video.slug }}">{{ video.title }}</a></div>
+			<div class="videoDurationLabel">duration: <span class="videoDuration">{{ video.duration }}</span></div>
+		</div>
+		{% endfor %}
+		{% paginate %}
+</div>
+<!-- END VIDEO LIST -->
+{% endblock %}
+
+{% block sideadblock %}
+	{% include "inc/adbox_video_sidebar.html" %}
+{% endblock %}
+

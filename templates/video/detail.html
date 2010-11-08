@@ -1,0 +1,33 @@
+{% extends "base_video_detail.html" %}
+
+{% block pagetitle %}Pop Galaxy : {{ video.title|striptags }} {% endblock %}
+
+{% block adblock %}
+	{% include "inc/adbox_video_top.html" %}
+{% endblock %}
+
+{% block content %}
+<!--BEGIN MAIN COLUMN CONTENT-->
+<div id="maincol">
+<div id="videoPlayer">{{ video.url_home|safe }}</div>
+
+<div id="videoNowPlaying">
+<div id="videoNowPlayingLabel">Now Playing</div>
+<div id="videoNowPlayingTitle">
+	<span class="titleMain">{{ video.title|striptags }}</span><br />
+	<span class="titleSub">{{ video.subtitle|striptags }}</span>
+</div>
+<div id="videoNowPlayingClear"></div>
+</div>
+
+<div id="videoDetails">
+	{{ video.details|safe }}
+	duration: [{{ video.duration }}]
+</div>
+{% endblock %}
+
+
+{% block sideadblock %}
+	{% include "inc/adbox_video_sidebar.html" %}
+{% endblock %}
+

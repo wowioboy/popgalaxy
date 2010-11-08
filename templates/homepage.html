@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Pop Galaxy{% endblock %}
+
+{% block adblock %}
+	{% include "inc/adbox_home_top.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<!--BEGIN MAIN COLUMN CONTENT-->
+<div id="maincol">
+<div id="videoPlayer">{{ featured_video.url_home|safe }}</div>
+
+<div id="videoNowPlaying">
+<div id="videoNowPlayingLabel">Now Playing</div>
+<div id="videoNowPlayingTitle">
+	<span class="titleMain">{{ featured_video.title|striptags}}</span><br />
+	<span class="titleSub">{{ featured_video.subtitle|striptags}}</span>
+</div>
+<div id="videoNowPlayingClear"></div>
+</div>
+
+
+<div id="videoCarouselTop"></div>
+<div id="videoCarousel">
+{% for item in carousel_video|slice:":4" %}
+<div class="videothumbnail">
+	<a href="video/{{ item.get_absolute_url }}{{ item.slug }}/"><div class="videothumbnailimage" style="background:url('{{ item.thumbnail.thumb_url }}') no-repeat top left;-o-background-size:141px 79px;-webkit-background-size:141px 79px;-moz-background-size:141px 79px;">
+		<div class="videothumbnailtitle">{{ item.carousel_text }}</div>
+	</div></a>
+	<div class="videothumbnailtype">{{ item.carousel_subtext }}</div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block sideadblock %}
+	{% include "inc/adbox_home_sidebar.html" %}
+{% endblock %}
+
+

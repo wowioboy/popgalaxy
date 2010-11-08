@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}New User Registration{% endblock %}
+{% block head %}New User Registration{% endblock %}
+
+{% block bread_crumbs %}
+<h6>
+<br>
+  <a href="/">Home </a>
+<br/><br/>
+</h6>
+{% endblock %}
+
+{% block page_content %}
+	<form method="post" action=".">
+		{{ form.as_p }}
+		<input type="submit" value="register" />
+	</form>
+{% endblock %}

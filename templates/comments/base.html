@@ -1,0 +1,35 @@
+{% include "inc/header.html" %}
+
+<div id="container">
+
+<!--BEGIN HEADER-->
+<div id="header">
+	{% block adblock %}{% endblock %}
+
+<div id="headerlogo"><a href="/"><span>Pop Galaxy</span></a></div>
+
+{% include "inc/headlines.html" %}
+
+<div id="headernav">
+{% include "inc/nav.html" %}
+{% include "inc/search.html" %}
+</div>
+
+</div><!--END HEADER-->
+
+<!--BEGIN PAGE CONTENT-->
+<div id="content">
+	{% block content %}{% endblock %}
+</div><!--END MAIN COLUMN CONTENT-->
+
+
+<div id="sidecol">
+{% block sideadblock %}{% endblock %}
+{% include "inc/twitter_feed.html" %}
+</div>
+
+<div id="contentclear"></div>
+</div><!--END PAGE CONTENT-->
+
+
+{% include "inc/footer.html" %}

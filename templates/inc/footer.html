@@ -1,0 +1,39 @@
+<!--BEGIN FOOTER-->
+<div id="connect"></div>
+
+<div id="footer">
+<div id="footerHeader">Watch This Space</div>
+</div><!--END FOOTER-->
+
+
+</div>
+<script type="text/javascript">
+//$.fn.cycle.defaults.timeout = 6000;
+$(document).ready(function(){
+    $('#headerheadlines').cycle({
+	    fx:     'scrollDown',
+	    delay:  3000,
+	    speed: 	'slow'
+	});
+	
+	/*
+	$('#feedBody').twitterfeed('thepopgalaxy').ajaxStop(function() {
+		$('#feedBody div.twitterBody').vTicker({ showItems: 5, mousePause:true, direction:'down', speed:700, pause:7000, animation:'fade', height:0});
+	});
+	*/
+	
+	$('.tweet').vTicker({
+		speed: 1500,
+		pause: 6000,
+		showItems: 1,
+		animation: 'fade',
+		mousePause: true,
+		height: 260,
+		direction: 'down'
+	});
+	
+});
+</script>
+
+</body>
+</html>

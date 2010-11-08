@@ -1,0 +1,51 @@
+{% extends "base_subpage.html" %}
+
+{% block pagetitle %}
+	Pop Galaxy : {{ object.title }}
+{% endblock %}
+
+{% block adblock %}
+	{% include "inc/adbox_blog_top.html" %}
+{% endblock %}
+
+{% block content %}
+<!--BEGIN MAIN COLUMN CONTENT-->
+<div id="maincol">
+
+<div id="blogEntry"><!-- START BLOG ENTRY -->
+	<div class="resultsTitle">Blog</div>
+	
+	<div class="entryTitle">{{ object.title }}</div>
+	<div class="entryDetails">
+		<span class="entryDate">{{ object.pub_date|date:"m/d/Y" }}</span> {{ object.body_html|safe }}
+	</div>
+
+</div><!-- END BLOG ENTRY -->
+<!-- 
+<div id="commentsList">
+	<h2>Comments</h2>
+	{% load comments %}
+	{% get_comment_count for object as comment_count %}
+	{% load markup %}
+	{% get_comment_list for object as comment_list %}
+	
+	<span class="commentCount">Comment{{ comment_count|pluralize }}: {{ comment_count }}</span>
+	{% for comment in comment_list %}
+	<p>On {{ comment.submit_date|date:"F j, Y" }},
+		{{ comment.name }} wrote:</p>
+		
+	{{ comment.comment|markdown:"safe" }}
+	{% endfor %}
+</div>
+
+<div id="commentsEntry">
+	<h2>Post a comment</h2>
+	{% render_comment_form for object %}
+</div>
+-->
+{% endblock %}
+
+{% block sideadblock %}
+	{% include "inc/adbox_blog_sidebar.html" %}
+{% endblock %}
+

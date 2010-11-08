@@ -1,0 +1,9 @@
+<div id="headerheadlines">
+	{% for headline in headlines %}
+	   {% ifnotequal forloop.counter 1 %}
+	      <div style="display:none;position:inherit;">
+	   {% else %}
+	      <div style="position:inherit;">
+	   {% endifnotequal %}{{ headline.title }}</div>
+	{% endfor %}
+</div>

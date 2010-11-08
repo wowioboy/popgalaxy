@@ -1,0 +1,40 @@
+{% extends "base_subpage.html" %}
+{% load pagination_tags %}
+
+{% block pagetitle %}Pop Galaxy : Blog {% endblock %}
+
+{% block adblock %}
+	{% include "inc/adbox_blog_top.html" %}
+{% endblock %}
+
+
+{% block content %}
+<!--BEGIN MAIN COLUMN CONTENT-->
+<div id="maincol">
+
+<!-- START BLOG ENTRIES LIST -->
+<div id="entriesList">
+	
+	<div class="resultsTitle">Blog</div>
+
+	{% autopaginate entries 12 %}
+	{% for entry in entries %}
+	<div class="entryItem">
+		<div class="entryThumb"><a href="/blog{{ entry.get_absolute_url }}"><img src="{{ entry.thumbnail.thumb_url }}"></a></div>
+		<div class="entryTitle"><a href="/blog{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
+		<div class="entryDetails">{{ entry.leadin_html|safe }}<span class="readMore"><a href="/blog{{ entry.get_absolute_url }}">read more</a></span></div>
+		<div class="entryDate">{{ entry.pub_date|date:"m/d/Y" }}</div>
+	</div>
+	{% endfor %}
+	{% paginate %}
+	
+</div><!-- END BLOG ENTRIES LIST -->
+
+{% endblock %}
+
+
+{% block sideadblock %}
+	{% include "inc/adbox_blog_sidebar.html" %}
+{% endblock %}
+
+

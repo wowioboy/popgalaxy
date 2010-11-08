@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<script charset="utf-8" src="{{ MEDIA_URL }}svgweb/svg.js" data-path="svgweb" type="text/javascript"></script> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script> 
+	<script charset="utf-8" src="{{ MEDIA_URL }}js/jquery.cycle.all.2.72.js" type="text/javascript"></script> 
+	<script charset="utf-8" src="{{ MEDIA_URL }}js/jquery.ztwitterfeed.js" type="text/javascript"></script> 
+	<script charset="utf-8" src="{{ MEDIA_URL }}js/jquery.vticker-min.js" type="text/javascript"></script>
+	<script charset="utf-8" src="{{ MEDIA_URL }}js/jquery.color.js" type="text/javascript"></script> 
+	
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+<title>{% block pagetitle %}{% endblock %}</title>
+
+<link rel="stylesheet" href="{{ MEDIA_URL }}style/fonts.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="{{ MEDIA_URL }}style/style.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="{{ MEDIA_URL }}style/popgalaxyoverride.css" type="text/css" media="screen, projection">
+<link rel="shortcut icon" href="{{ MEDIA_URL }}images/favicon.png">
+{% include "inc/google_analytics.html" %}
+</head>
+<body>
+
+<div id="container">
+
+<!--BEGIN HEADER-->
+<div id="header">
+	{% block adblock %}{% endblock %}
+
+<div id="headerlogo"><a href="/"><span>Pop Galaxy</span></a></div>
+
+{% include "inc/headlines.html" %}
+
+<div id="headernav">
+{% include "inc/nav.html" %}
+{% include "inc/search.html" %}
+</div>
+
+</div><!--END HEADER-->
+
+<!--BEGIN PAGE CONTENT-->
+<div id="content">
+	{% block content %}{% endblock %}
+</div><!--END MAIN COLUMN CONTENT-->
+
+
+<div id="sidecol">
+{% block sideadblock %}{% endblock %}
+{% include "inc/twitter_feed.html" %}
+</div>
+
+<div id="contentclear"></div>
+</div><!--END PAGE CONTENT-->
+
+
+
+{% include "inc/footer.html" %}
