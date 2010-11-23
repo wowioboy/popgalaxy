@@ -39,6 +39,7 @@ class Video(models.Model):
         blank=True,
         null=True
     )
+
     class Meta:
         ordering = ['title']
         verbose_name = "Video"

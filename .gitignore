@@ -1,3 +1,4 @@
 .DS_STORE
 *.pyc
 media/thumbs/**/*
+_build
