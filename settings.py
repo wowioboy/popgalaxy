@@ -20,7 +20,7 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 if socket.gethostname() == 'Zeus.local':
     DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
     DEBUG = True
-    MEDIA_ROOT = '/Users/zeus/Sites/django/popgalaxy/media/'
+    MEDIA_ROOT = '/Users/zeus/Desktop/Dropbox/Sites/django/popgalaxy/media/'
 else:
     DATABASE_HOST = '173.203.196.9'
     MEDIA_ROOT = '/home/pop/public_html/popgalaxy/media/'
