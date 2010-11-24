@@ -1,5 +1,7 @@
 /* @override http://popgalaxy.com/media/style/style.css */
 body {
-	background: url(/media/images/maxim_bg.jpg) no-repeat #252525;
+	background: url(/media/images/maxim_bg.jpg) no-repeat #252525 center top;
 	font-family: Rocky, sans-serif;
+	-o-background-size: 1457px 963px;
+	-webkit-background-size: 1457px 963px;
 }
