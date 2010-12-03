@@ -378,6 +378,10 @@ ul#nav li a#blog {
 	width: 193px;
 }
 
+.videoRow {
+    overflow: auto;
+}
+
 .videoItem {
 	overflow: hidden;
 	width: 193px;

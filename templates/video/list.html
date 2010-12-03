@@ -18,11 +18,21 @@
 
 		{% autopaginate videos 12 %}
 		{% for video in videos %}
+
+        {% if forloop.first or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10 %}
+        <div class="videoRow">
+        {% endif %}
+
 		<div class="videoItem">
 			<div class="videoThumb"><a href="{{ video.get_absolute_url }}{{ video.slug }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>
 			<div class="videoTitle"><a href="{{ video.get_absolute_url }}{{ video.slug }}">{{ video.title }}</a></div>
 			<div class="videoDurationLabel">duration: <span class="videoDuration">{{ video.duration }}</span></div>
 		</div>
+
+        {% if forloop.last or forloop.counter|divisibleby:"3" %}
+        </div>
+        {% endif %}
+
 		{% endfor %}
 		{% paginate %}
 </div>
