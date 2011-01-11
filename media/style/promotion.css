@@ -1,7 +1,12 @@
 /* @override http://popgalaxy.com/media/style/style.css */
+/*
 body {
 	background: url(/media/images/maxim_bg.jpg) no-repeat #252525 center top;
 	font-family: Rocky, sans-serif;
 	-o-background-size: 1457px 963px;
 	-webkit-background-size: 1457px 963px;
+}
+*/
+body{
+    background: #dd6801 url('/media/images/promos/fandango_gt_pg_background.jpg') no-repeat center top;
 }

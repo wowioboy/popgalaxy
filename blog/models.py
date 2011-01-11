@@ -41,7 +41,7 @@ class Entry(models.Model):
         return u'%s' %(self.title)
 
     def get_absolute_url(self):
-        return "/%s/%s/" %(self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
+        return "/blog/%s/%s/" %(self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
     
     def save(self):
          self.body_html = markdown.markdown(self.body_markdown, safe_mode = False)

@@ -27,7 +27,8 @@
 <div id="videoCarousel">
 {% for item in carousel_video|slice:":4" %}
 <div class="videothumbnail">
-	<a href="video/{{ item.get_absolute_url }}{{ item.slug }}/"><div class="videothumbnailimage" style="background:url('{{ item.thumbnail.thumb_url }}') no-repeat top left;-o-background-size:141px 79px;-webkit-background-size:141px 79px;-moz-background-size:141px 79px;">
+	{#<a href="video/{{ item.get_absolute_url }}{{ item.slug }}/"><div class="videothumbnailimage" style="background:url('{{ item.thumbnail.thumb_url }}') no-repeat top left;-o-background-size:141px 79px;-webkit-background-size:141px 79px;-moz-background-size:141px 79px;">#}
+	<a href="{{ item.get_absolute_url }}"><div class="videothumbnailimage" style="background:url('{{ item.thumbnail.thumb_url }}') no-repeat top left;-o-background-size:141px 79px;-webkit-background-size:141px 79px;-moz-background-size:141px 79px;">
 		<div class="videothumbnailtitle">{{ item.carousel_text }}</div>
 	</div></a>
 	<div class="videothumbnailtype">{{ item.carousel_subtext }}</div>

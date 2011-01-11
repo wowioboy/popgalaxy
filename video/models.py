@@ -54,8 +54,9 @@ class Video(models.Model):
     def get_tags(self):
         return Tag.objects.get_for_object(self)
 
-    @permalink
+#    @permalink
     def get_absolute_url(self):
-        return ("video_detail", None, {'slug':self.slug})
+        return "/video/%s/" % (self.slug,)
+#        return ("video_detail", None, {'slug':self.slug})
 
 

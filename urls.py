@@ -8,6 +8,7 @@ from video.views import *
 from search.views import *
 from corp.views import *
 from headlines.views import *
+from feeds import LatestBlogFeed, LatestVideoFeed
 
 admin.autodiscover()
 urlpatterns = patterns('',
@@ -27,6 +28,8 @@ urlpatterns = patterns('',
 )
 urlpatterns += patterns('',
     (r'^$',home_page),
+    (r'^blog/feed/$', LatestBlogFeed()),
+    (r'^video/feed/$', LatestVideoFeed()),
     (r'^blog/',include('blog.urls')),
     (r'^video/',include('video.urls')),
     (r'^search/$',search_results),

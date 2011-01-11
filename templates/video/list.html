@@ -24,8 +24,10 @@
         {% endif %}
 
 		<div class="videoItem">
-			<div class="videoThumb"><a href="{{ video.get_absolute_url }}{{ video.slug }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>
-			<div class="videoTitle"><a href="{{ video.get_absolute_url }}{{ video.slug }}">{{ video.title }}</a></div>
+			{#<div class="videoThumb"><a href="{{ video.get_absolute_url }}{{ video.slug }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>#}
+			{#<div class="videoThumb"><a href="{{ video.get_absolute_url }}{{ video.slug }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>#}
+			<div class="videoThumb"><a href="{{ video.get_absolute_url }}"><img src="{{ video.thumbnail.thumb_url }}"></a></div>
+			<div class="videoTitle"><a href="{{ video.get_absolute_url }}">{{ video.title }}</a></div>
 			<div class="videoDurationLabel">duration: <span class="videoDuration">{{ video.duration }}</span></div>
 		</div>
 

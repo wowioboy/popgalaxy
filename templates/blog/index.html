@@ -20,8 +20,12 @@
 	{% autopaginate entries 12 %}
 	{% for entry in entries %}
 	<div class="entryItem">
+		{% comment %}
 		<div class="entryThumb"><a href="/blog{{ entry.get_absolute_url }}"><img src="{{ entry.thumbnail.thumb_url }}"></a></div>
 		<div class="entryTitle"><a href="/blog{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
+		{% endcomment %}
+		<div class="entryThumb"><a href="{{ entry.get_absolute_url }}"><img src="{{ entry.thumbnail.thumb_url }}"></a></div>
+		<div class="entryTitle"><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
 		<div class="entryDetails">{{ entry.leadin_html|safe }}<span class="readMore"><a href="/blog{{ entry.get_absolute_url }}">read more</a></span></div>
 		<div class="entryDate">{{ entry.pub_date|date:"m/d/Y" }}</div>
 	</div>
