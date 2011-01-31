@@ -9,6 +9,7 @@ from search.views import *
 from corp.views import *
 from headlines.views import *
 from feeds import LatestBlogFeed, LatestVideoFeed
+import threadedcomments
 
 admin.autodiscover()
 urlpatterns = patterns('',
@@ -34,6 +35,7 @@ urlpatterns += patterns('',
     (r'^video/',include('video.urls')),
     (r'^search/$',search_results),
     (r'^about/$',about),
+    (r'^threadedcomments/',include('threadedcomments.urls')),
 )
 """
 urlpatterns += patterns('',

@@ -21,6 +21,11 @@ if socket.gethostname() == 'Zeus.local':
     DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
     DEBUG = True
     MEDIA_ROOT = '/Users/zeus/Desktop/Dropbox/Sites/django/popgalaxy/media/'
+elif socket.gethostname() == 'mark-desktop':
+    DATABASE_ENGINE = 'sqlite3'
+    DATABASE_NAME = 'dev.db'
+    DEBUG = True
+    MEDIA_ROOT = '/home/mark/py-env/pop_root/popgalaxy/media/'
 else:
     DATABASE_HOST = '173.203.196.9'
     MEDIA_ROOT = '/home/pop/public_html/popgalaxy/media/'
@@ -123,6 +128,7 @@ INSTALLED_APPS = (
     'registration',
     'tagging',
     'tagging_autocomplete',
+    'threadedcomments'
 )
 
 if socket.gethostname() == 'Zeus.local':

@@ -505,4 +505,11 @@ li .tweetDate {
 	text-align: left;
 	width: 50px;
 }
+
+
+.comment-block{
+    margin-left: 15px;
+    padding: 15px;
+    background: #91d798;
+}
 /* END */

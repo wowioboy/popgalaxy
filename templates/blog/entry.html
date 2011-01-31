@@ -1,4 +1,5 @@
 {% extends "base_subpage.html" %}
+{% load threadedcommentstags %}
 
 {% block pagetitle %}
 	Pop Galaxy : {{ object.title }}
@@ -43,6 +44,23 @@
 	{% render_comment_form for object %}
 </div>
 -->
+
+<div class="comment-block">
+    {% get_threaded_comment_tree for object as tree %}
+    {% for comment in tree %}
+        <div class="comment">
+        </div>
+    {% endfor %}
+    <p>Reply to Original:</p>
+    <form method="POST" action="{% get_comment_url object %}">
+        <ul>
+            {% get_threaded_comment_form as form %}
+            {{ form.as_ul }}
+            <li><input type="submit" value="Submit Comment" /></li>
+        </ul>
+    </form>
+</div>
+
 {% endblock %}
 
 {% block sideadblock %}
