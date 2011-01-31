@@ -8,5 +8,8 @@ body {
 }
 */
 body{
-    background: #dd6801 url('/media/images/promos/fandango_gt_pg_background.jpg') no-repeat center top;
+    /*background: #dd6801 url('/media/images/promos/fandango_gt_pg_background.jpg') no-repeat center top;*/
+	-o-background-size: 1600px 963px;
+	-webkit-background-size: 1600px 963px;
+	background: url('/media/images/promos/studioW_scoutshonor_popgalaxy_background.jpg') no-repeat #ec6c20 center top;
 }
