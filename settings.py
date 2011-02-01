@@ -25,7 +25,7 @@ elif socket.gethostname() == 'mark-desktop':
     DATABASE_ENGINE = 'sqlite3'
     DATABASE_NAME = 'dev.db'
     DEBUG = True
-    MEDIA_ROOT = '/home/mark/py-env/pop_root/popgalaxy/media/'
+    MEDIA_ROOT = '/home/mark/work/pop-env/popgalaxy/media/'
 else:
     DATABASE_HOST = '173.203.196.9'
     MEDIA_ROOT = '/home/pop/public_html/popgalaxy/media/'

@@ -22,6 +22,7 @@
 	</div>
 
 </div><!-- END BLOG ENTRY -->
+{% comment %}
 <!-- 
 <div id="commentsList">
 	<h2>Comments</h2>
@@ -44,13 +45,33 @@
 	{% render_comment_form for object %}
 </div>
 -->
+{% endcomment %}
 
+{% get_comment_count for object as comment_count %}
 <div class="comment-block">
+    {% if user.is_authenticated %}
+    <a class="post-comment">+ POST</a>
+    {% else %}
+    <div>
+        Login or Signup
+    </div>
+    {% endif %}
+    <span style="color: #fff;">COMMENTS ({{ comment_count }})</span>
     {% get_threaded_comment_tree for object as tree %}
     {% for comment in tree %}
         <div class="comment">
+            <span class="comment-name">{{ comment.user.username }}</span>
+            <span class="comment-when">{{ comment.date_submitted|timesince }} ago</span>
+            <p class="comment-body">
+            {{ comment }}
+            </p>
+            {% if user.is_authenticated %}
+            <a id="c{{ comment.id }}" href="javascript:show_reply_form('c{{ comment.id }}', '{% get_comment_url object comment %}', '{{ comment.user.username }}')">Reply</a>
+            {% endif %}
         </div>
     {% endfor %}
+            
+{% comment %}
     <p>Reply to Original:</p>
     <form method="POST" action="{% get_comment_url object %}">
         <ul>
@@ -59,6 +80,39 @@
             <li><input type="submit" value="Submit Comment" /></li>
         </ul>
     </form>
+{% endcomment %}
+
+
+<script type="text/javascript">
+function show_reply_form(comment_id, url, person_name) {
+    var comment_reply = $('#' + comment_id);
+    var to_add = $( new Array(
+    '<div class="response"><p>Reply to ' + person_name + ':</p>',
+    '<form method="POST" action="' + url + '">',
+    '<ul>',  '{{ form.as_ul|oneline }}',
+    '<li><input type="submit" value="Submit Comment" /></li>',
+    '</ul>', '</form>', '</div>').join(''));
+    to_add.css("display", "none");
+    comment_reply.after(to_add);
+    to_add.slideDown(function() {
+        comment_reply.replaceWith(new Array('<a id="',
+        comment_id,'" href="javascript:hide_reply_form(\'',
+        comment_id, '\',\'', url, '\',\'', person_name,
+        '\')">Stop Replying</a>').join(''));
+    });
+}
+function hide_reply_form(comment_id, url, person_name) {
+    var comment_reply = $('#' + comment_id);
+    comment_reply.next().slideUp(function (){
+        comment_reply.next('.response').remove();
+        comment_reply.replaceWith(new Array('<a id="',
+        comment_id,'" href="javascript:show_reply_form(\'',
+        comment_id, '\',\'', url, '\',\'', person_name,
+        '\')">Reply</a>').join(''));
+    });
+}
+</script>
+
 </div>
 
 {% endblock %}

@@ -102,6 +102,8 @@ def blog_entry(request, slug):
     'mentions':mentions
   }
   """
+
+
   variables = RequestContext(request,{
     'entry':entry,
     'headlines':headlines,
