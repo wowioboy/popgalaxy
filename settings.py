@@ -23,9 +23,9 @@ if socket.gethostname() == 'Zeus.local':
     MEDIA_ROOT = '/Users/zeus/Desktop/Dropbox/Sites/django/popgalaxy/media/'
 elif socket.gethostname() == 'mark-desktop':
     DATABASE_ENGINE = 'sqlite3'
-    DATABASE_NAME = 'dev.db'
+    DATABASE_NAME = 'dev2.db'
     DEBUG = True
-    MEDIA_ROOT = '/home/mark/work/pop-env/popgalaxy/media/'
+    MEDIA_ROOT = '/home/mark/py-env/pop_root/popgalaxy/media/'
 else:
     DATABASE_HOST = '173.203.196.9'
     MEDIA_ROOT = '/home/pop/public_html/popgalaxy/media/'

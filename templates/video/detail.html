@@ -1,4 +1,5 @@
 {% extends "base_video_detail.html" %}
+{% load threadedcommentstags %}
 
 {% block pagetitle %}Pop Galaxy : {{ video.title|striptags }} {% endblock %}
 
@@ -24,6 +25,108 @@
 	{{ video.details|safe }}
 	duration: [{{ video.duration }}]
 </div>
+
+
+
+{% get_comment_count for video as comment_count %}
+<div class="comment-block">
+    {% if user.is_authenticated %}
+    <a href="javascript:$('comment-form').show(); $('.post-comment').hide();" onclick="$('#comment-form').show(); $('.post-comment').hide(); return false;" class="post-comment">+ POST</a>
+    <div id="comment-form" style="display: none;">
+
+<form method="POST" action="{% get_comment_url video %}"> 
+    <textarea id="comment" name="comment" class="comment-input" style="width: 90%; margin-bottom: 5px;"></textarea>
+
+    {% csrf_token %}
+    <input type="hidden" name="markup" value="5" />
+    <br />
+    <input type="submit" value="Post Comment" />
+</form>
+    </div>
+    {% else %}
+    <div>
+        <div id="comment-form">
+            {% include 'account/login.html' %}
+        </div>
+        <div id="comment-form2" style="display: none;">
+<form method="POST" action="{% get_comment_url video %}"> 
+    <textarea id="comment" name="comment" class="comment-input" style="width: 90%; margin-bottom: 5px;"></textarea>
+
+    {% csrf_token %}
+    <input type="hidden" name="markup" value="5" />
+    <br />
+    <input type="submit" value="Post Comment" />
+</form>
+        </div>
+    </div>
+    {% endif %}
+    <span style="color: #fff;">COMMENTS ({{ comment_count }})</span>
+    {% get_threaded_comment_tree for video as tree %}
+    {% for comment in tree %}
+        <div class="comment">
+            <span class="comment-name">{{ comment.user.get_full_name }}</span>
+            <span class="comment-when">{{ comment.date_submitted|timesince }} ago</span>
+            <p class="comment-body">
+            {{ comment }}
+            </p>
+{% comment %}
+            {% if user.is_authenticated %}
+            <a id="c{{ comment.id }}" href="javascript:show_reply_form('c{{ comment.id }}', '{% get_comment_url object comment %}', '{{ comment.user.username }}')">Reply</a>
+            {% endif %}
+{% endcomment %}
+        </div>
+    {% endfor %}
+            
+{% comment %}
+    <p>Reply to Original:</p>
+    <form method="POST" action="{% get_comment_url object %}">
+            {% get_threaded_comment_form as form %}
+            {% for field in form %}
+                {% if field.label == 'Markup' %}
+                    {{ field }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
+            
+            {% csrf_token %}
+            <input type="submit" value="Submit Comment" />
+    </form>
+{% endcomment %}
+
+{% comment %}
+<script type="text/javascript">
+function show_reply_form(comment_id, url, person_name) {
+    var comment_reply = $('#' + comment_id);
+    var to_add = $( new Array(
+    '<div class="response"><p>Reply to ' + person_name + ':</p>',
+    '<form method="POST" action="' + url + '">',
+    '<ul>',  '{{ form.as_ul|oneline }}',
+    '<li><input type="submit" value="Submit Comment" /></li>',
+    '</ul>', '</form>', '</div>').join(''));
+    to_add.css("display", "none");
+    comment_reply.after(to_add);
+    to_add.slideDown(function() {
+        comment_reply.replaceWith(new Array('<a id="',
+        comment_id,'" href="javascript:hide_reply_form(\'',
+        comment_id, '\',\'', url, '\',\'', person_name,
+        '\')">Stop Replying</a>').join(''));
+    });
+}
+function hide_reply_form(comment_id, url, person_name) {
+    var comment_reply = $('#' + comment_id);
+    comment_reply.next().slideUp(function (){
+        comment_reply.next('.response').remove();
+        comment_reply.replaceWith(new Array('<a id="',
+        comment_id,'" href="javascript:show_reply_form(\'',
+        comment_id, '\',\'', url, '\',\'', person_name,
+        '\')">Reply</a>').join(''));
+    });
+}
+</script>
+{% endcomment %}
+</div>
+
 {% endblock %}
 
 

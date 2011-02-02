@@ -511,6 +511,7 @@ li .tweetDate {
     margin-left: 15px;
     padding: 15px;
     background: #91d798;
+    margin-bottom: 15px;
 }
 
 
@@ -532,11 +533,46 @@ li .tweetDate {
 }
 
 .post-comment{
+    display: inline-block;
     color: #fff;
     margin-top: -15px;
     margin-right: -15px;
     background: #f00;
     padding: 5px;
     float: right;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.comment-input{
+    display: inline-block;
+    padding: 5px;
+    border: solid #c0c0c0 2px;
+    vertical-align: middle;
+}
+
+#comment-form, #comment-form2{
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #f3f7a6;
+}
+
+.cred-form label{
+    vertical-align: middle;
+    display: inline-block;
+    width: 100px;
+}
+
+.field-row{
+    display: inline-block;
+    margin: 2px;
+}
+
+#errors{
+    background: red;
+    color: #fff;
+    padding: 5px;
+    display: none;
+    margin-bottom: 10px;
 }
 /* END */

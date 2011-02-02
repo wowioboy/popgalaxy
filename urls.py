@@ -36,6 +36,12 @@ urlpatterns += patterns('',
     (r'^search/$',search_results),
     (r'^about/$',about),
     (r'^threadedcomments/',include('threadedcomments.urls')),
+    (r'^signup_html/$', 'django.views.generic.simple.direct_to_template', {'template': 'account/signup.html'}),
+    (r'^login_html/$', 'django.views.generic.simple.direct_to_template', {'template': 'account/login.html'}),
+    (r'^remote_login/$', 'views.remote_login'),
+    (r'^remote_signup/$', 'views.remote_signup'),
+    (r'^comment_form/$', 'views.comment_form'),
+    (r'^remote_logout/$', 'views.remote_logout'),
 )
 """
 urlpatterns += patterns('',

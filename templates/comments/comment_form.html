@@ -1,0 +1,27 @@
+<form action="/post_comment/" id="post-comment">
+    <textarea id="comment" class="comment-input" style="width: 90%; margin-bottom: 5px;"></textarea>
+    {% csrf_token %}
+    <br />
+    <input type="submit" value="Post Comment" />
+</form>
+
+<!--
+<script>
+    $('#post-comment').submit(function() {
+        comment = $('#comment');
+
+        args = {
+            'comment': comment.text(),
+            'csrfmiddlewaretoken': {{ csrf_token }},
+            'markup': 'plaintext'
+        }
+
+        $.post('', args, function(data){
+            if (data['success']){
+                comment.text('');
+            }
+        }, "json");
+        return false;
+    });
+</script>
+-->

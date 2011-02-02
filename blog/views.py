@@ -17,6 +17,8 @@ from blog.forms import *
 from video.models import *
 from headlines.models import *
 
+from django.contrib.auth.forms import UserCreationForm
+
 ########################################
 def home_page(request):
 
@@ -105,6 +107,7 @@ def blog_entry(request, slug):
 
 
   variables = RequestContext(request,{
+    'signup_form': UserCreationForm(),
     'entry':entry,
     'headlines':headlines,
   })

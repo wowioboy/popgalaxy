@@ -1,0 +1,70 @@
+
+    <div id="errors">
+    </div>
+            <span style="display: inline-block; vertical-align: middle; border-right: solid #c0c0c0 1px;" id="signup-login">
+<form class="cred-form" action="/signup/" id="signup-form">
+    <span class="field-row">
+    <label>Name:</label> <input type="text" class="comment-input" id="name" />
+    </span>
+    <br />
+    <span class="field-row">
+    <label>Email:</label> <input type="text" class="comment-input" id="email" />
+    </span>
+    <br />
+    <span class="field-row">
+    <label>Password:</label> <input type="password" class="comment-input" id="password1" />
+    </span>
+    <br />
+    <span class="field-row">
+    <label>Confirm Password:</label> <input type="password" class="comment-input" id="password2" />
+    </span>
+    <br />
+    <span class="field-row">
+    <input type="submit" value="Sign Up" />
+    </span>
+</form>
+            </span>
+            <span style="display: inline-block; vertical-align: middle;">
+                OR
+                <a href="javascript:$('#comment-form').load('/login_html/');" onclick="$('#comment-form').load('/login_html/'); return false;">Login</a> to post a comment
+            </span>
+
+            <script type="text/javascript">
+
+                $('#signup-form').submit( function() {
+                    errors = $('#errors');
+
+                    errors.hide()
+                    errors.html('')
+                    args = {
+                        'username': $('input#email').val(),
+                        'password1': $('input#password1').val(),
+                        'password2': $('input#password2').val(),
+                        'name': $('input#name').val(),
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    }
+                    $.post('/remote_signup/', args, function(data) {
+                        if (data['success']) {
+                            $('#comment-form').remove();
+                            $('#comment-form2').show();
+                        } else {
+                            compiled_errors = ''
+                            if (data['username'] == 'required' || data['password1'] == 'required' || data['password2'] == 'required' || data['name'] == 'required') {
+                                compiled_errors += "<p>* All fields are required</p>";
+                            }
+                            if (data['email'] == 'invalid') {
+                                compiled_errors += "<p>* Email is invalid</p>";
+                            }
+                            if (data['password2'] == 'no_match') {
+                                compiled_errors += "<p>* Passwords must match</p>";
+                            }
+                            if (data['username'] == 'exists'){
+                                compiled_errors += "<p>* An account already exists under that email address</p>";
+                            }
+                            errors.html(compiled_errors);
+                            errors.show();
+                        }
+                    }, "json");
+                    return false;
+                });
+            </script>

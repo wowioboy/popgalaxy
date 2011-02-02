@@ -1,0 +1,45 @@
+
+    <div id="errors">
+    </div>
+            <span style="display: inline-block; vertical-align: middle; border-right: solid #c0c0c0 1px;" id="signup-login">
+            <form class="cred-form" action="/login/" id="login-form">
+                <span class="field-row">
+                <label>Email:</label><input id="username" type="text" class="comment-input" />
+                </span><br />
+                <span class="field-row">
+                <label>Password:</label><input id="password" type="password" class="comment-input" />
+                </span><br />
+                <span class="field-row">
+                <input type="submit" value="Login" />
+                </span>
+{#                {% csrf_token %}#}
+            </form>
+            </span>
+            <span style="display: inline-block; vertical-align: middle;">
+                OR
+                <a href="javascript:$('#comment-form').load('/signup_html/');" onclick="$('#comment-form').load('/signup_html/'); return false;">Sign Up</a> to post a comment
+            </span>
+
+            <script type="text/javascript">
+
+                $('#login-form').submit( function() {
+                    errors = $('#errors');
+                    errors.hide()
+                    errors.html('')
+                    args = {
+                        'username': $('input#username').val(),
+                        'password': $('input#password').val(),
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    }
+                    $.post('/remote_login/', args, function(data) {
+                        if (data['success']) {
+                            $('#comment-form').remove();
+                            $('#comment-form2').show();
+                        } else {
+                            errors.html('<p>Login Failed</p>');
+                            errors.show();
+                        }
+                    }, "json");
+                    return false;
+                });
+            </script>
