@@ -6,6 +6,10 @@ PROJECT_DIR = os.path.dirname(__file__)
 DEBUG = False
 
 
+GRAVATAR_DEFAULT_IMG = "http://localhost:8000/media/images/popgalaxy_default_avatar.png"
+GRAVATAR_SIZE = 80
+
+
 ADMINS = (
     ('Lawrence Leach', 'lleach@wowio.com'),
 )

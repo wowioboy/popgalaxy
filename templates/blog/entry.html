@@ -1,5 +1,6 @@
 {% extends "base_subpage.html" %}
 {% load threadedcommentstags %}
+{% load gravatar %}
 
 {% block pagetitle %}
 	Pop Galaxy : {{ object.title }}
@@ -55,10 +56,12 @@
         </div>
     </div>
     {% endif %}
-    <span style="color: #fff;">COMMENTS ({{ comment_count }})</span>
+    <span style="display: inline-block;color: #fff; margin-bottom: 15px;">COMMENTS ({{ comment_count }})</span>
     {% get_threaded_comment_tree for object as tree %}
     {% for comment in tree %}
-        <div class="comment">
+        <div class="comment" style="margin-bottom: 10px;">
+            <img src="{{ comment.user|gravatar }}" style="background: #f3f7a6; vertical-align: top;"/>
+            <span style="display: inline-block; vertical-align: top; margin-left: 10px;">
             <span class="comment-name">{{ comment.user.get_full_name }}</span>
             <span class="comment-when">{{ comment.date_submitted|timesince }} ago</span>
             <p class="comment-body">
@@ -69,6 +72,7 @@
             <a id="c{{ comment.id }}" href="javascript:show_reply_form('c{{ comment.id }}', '{% get_comment_url object comment %}', '{{ comment.user.username }}')">Reply</a>
             {% endif %}
 {% endcomment %}
+            </span>
         </div>
     {% endfor %}
             
