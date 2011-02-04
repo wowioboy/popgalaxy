@@ -62,11 +62,12 @@
         <div class="comment" style="margin-bottom: 10px;">
             <img src="{{ comment.user|gravatar }}" style="background: #f3f7a6; vertical-align: top;"/>
             <span style="display: inline-block; vertical-align: top; margin-left: 10px;">
-            <span class="comment-name">{{ comment.user.get_full_name }}</span>
-            <span class="comment-when">{{ comment.date_submitted|timesince }} ago</span>
-            <p class="comment-body">
-            {{ comment }}
-            </p>
+                <span class="comment-name">{{ comment.user.get_full_name }}</span>
+                <span class="comment-when">{{ comment.date_submitted|timesince }} ago</span>
+                <p class="comment-body">
+                {{ comment.comment }}
+                </p>
+{#                <a href="" class="post-reply">REPLY</a>#}
 {% comment %}
             {% if user.is_authenticated %}
             <a id="c{{ comment.id }}" href="javascript:show_reply_form('c{{ comment.id }}', '{% get_comment_url object comment %}', '{{ comment.user.username }}')">Reply</a>
