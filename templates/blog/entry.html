@@ -62,7 +62,7 @@
             <span class="comment-name">{{ comment.user.get_full_name }}</span>
             <span class="comment-when">{{ comment.date_submitted|timesince }} ago</span>
             <p class="comment-body">
-            {{ comment }}
+            {{ comment.comment }}
             </p>
 {% comment %}
             {% if user.is_authenticated %}
