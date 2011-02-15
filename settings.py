@@ -10,6 +10,17 @@ GRAVATAR_DEFAULT_IMG = "http://localhost:8000/media/images/popgalaxy_default_ava
 GRAVATAR_SIZE = 80
 
 
+#TINYMCE_JS_URL
+#TINYMCE_JS_ROOT
+#TINYMCE_DEFAULT_CONFIG
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': 'table,spellchecker,paste,searchreplace,preview',
+    'theme_advanced_buttons4': 'preview,spellchecker',
+    'theme': 'advanced',
+}
+TINYMCE_SPELLCHECKER = True
+
+
 ADMINS = (
     ('Lawrence Leach', 'lleach@wowio.com'),
 )
@@ -128,6 +139,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.comments',
     'django.contrib.markup',
+    'tinymce',
     'pagination',
     'registration',
     'tagging',
