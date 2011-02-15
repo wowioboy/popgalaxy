@@ -58,6 +58,7 @@
     {% endif %}
     <span style="display: inline-block;color: #fff; margin-bottom: 15px;">COMMENTS ({{ comment_count }})</span>
     {% get_threaded_comment_tree for object as tree %}
+{#    {% get_latest_comments 100 as tree %}#}
     {% for comment in tree %}
         <div class="comment" style="margin-bottom: 10px;">
             <img src="{{ comment.user|gravatar }}" style="background: #f3f7a6; vertical-align: top;"/>

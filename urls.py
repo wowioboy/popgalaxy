@@ -11,6 +11,7 @@ from headlines.views import *
 from feeds import LatestBlogFeed, LatestVideoFeed
 import threadedcomments
 
+
 admin.autodiscover()
 urlpatterns = patterns('',
     # Example:
@@ -22,7 +23,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
-    (r'^tiny_mce/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': '/usr/local/tinymce/jscripts/tiny_mce' },),
+#    (r'^tiny_mce/(?P<path>.*)$', 'django.views.static.serve', { 'document_root': '/usr/local/tinymce/jscripts/tiny_mce' },),
+    (r'^tinymce/', include('tinymce.urls')),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),

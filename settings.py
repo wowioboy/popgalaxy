@@ -21,7 +21,6 @@ TINYMCE_DEFAULT_CONFIG = {
 TINYMCE_SPELLCHECKER = True
 
 
-
 ADMINS = (
     ('Lawrence Leach', 'lleach@wowio.com'),
 )
