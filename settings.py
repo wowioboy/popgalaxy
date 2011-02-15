@@ -6,8 +6,20 @@ PROJECT_DIR = os.path.dirname(__file__)
 DEBUG = False
 
 
-GRAVATAR_DEFAULT_IMG = "http://localhost:8000/media/images/popgalaxy_default_avatar.png"
+GRAVATAR_DEFAULT_IMG = "http://popgalaxy.com/media/images/popgalaxy_default_avatar.png"
 GRAVATAR_SIZE = 80
+
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': 'table,spellchecker,paste,searchreplace,preview,fullscreen',
+    'theme_advanced_buttons4': 'preview,spellchecker,fullscreen',
+    'theme_advanced_toolbar_location': 'top',
+    'theme_advanced_toolbar_align': 'left',
+    'theme': 'advanced',
+    'extended_valid_elements': 'script[type|src],iframe[src|style|width|height|scrolling|marginwidth|marginheight|frameborder]'
+}
+TINYMCE_SPELLCHECKER = True
+
 
 
 ADMINS = (
@@ -25,11 +37,6 @@ if socket.gethostname() == 'Zeus.local':
     DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
     DEBUG = True
     MEDIA_ROOT = '/Users/zeus/Desktop/Dropbox/Sites/django/popgalaxy/media/'
-elif socket.gethostname() == 'mark-desktop':
-    DATABASE_ENGINE = 'sqlite3'
-    DATABASE_NAME = 'dev2.db'
-    DEBUG = True
-    MEDIA_ROOT = '/home/mark/py-env/pop_root/popgalaxy/media/'
 else:
     DATABASE_HOST = '173.203.196.9'
     MEDIA_ROOT = '/home/pop/public_html/popgalaxy/media/'
@@ -128,6 +135,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.comments',
     'django.contrib.markup',
+    'tinymce',
     'pagination',
     'registration',
     'tagging',

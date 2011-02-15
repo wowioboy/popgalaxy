@@ -11,7 +11,7 @@ from headlines.models import *
 
 def video_list(request):
 
-  videos = Video.objects.filter(isactive=1)
+  videos = Video.objects.filter(isactive=1).order_by('-pub_date')
   headlines = Headline.objects.filter(isactive=1)
   """
   auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)

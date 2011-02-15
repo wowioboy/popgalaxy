@@ -59,7 +59,7 @@ def home_page(request):
 def blog(request):
 
   entries_range = 5
-  entries = Entry.objects.order_by('-pub_date','title').filter(status=1)
+  entries = Entry.objects.filter(status=1).order_by('-pub_date', 'title')
   headlines = Headline.objects.filter(isactive=1)
 
   """
