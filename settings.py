@@ -14,8 +14,10 @@ GRAVATAR_SIZE = 80
 #TINYMCE_JS_ROOT
 #TINYMCE_DEFAULT_CONFIG
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': 'table,spellchecker,paste,searchreplace,preview',
-    'theme_advanced_buttons4': 'preview,spellchecker',
+    'plugins': 'table,spellchecker,paste,searchreplace,preview,fullscreen',
+    'theme_advanced_buttons4': 'preview,spellchecker,fullscreen',
+    'theme_advanced_toolbar_location': 'top',
+    'theme_advanced_toolbar_align': 'left',
     'theme': 'advanced',
 }
 TINYMCE_SPELLCHECKER = True

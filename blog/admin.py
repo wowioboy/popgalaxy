@@ -11,7 +11,7 @@ class EntryAdmin(admin.ModelAdmin):
 		(None, {'fields': ('carousel', 'status', 'title', 'subtitle', 'carousel_text', 'carousel_subtext', 'leadin_markdown', 'body_markdown', ('pub_date', 'enable_comments'), 'thumbnail', 'tags', 'slug')}),
     )
     formfield_overrides = {
-        models.TextField: {'widget': TinyMCE}, 
+        models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 'rows': 30})}, 
     }
 
 admin.site.register(Entry, EntryAdmin)
