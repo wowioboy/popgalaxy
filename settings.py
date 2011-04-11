@@ -3,7 +3,7 @@ import os.path
 import socket
 PROJECT_DIR = os.path.dirname(__file__)
 
-DEBUG = False
+DEBUG = True
 
 
 GRAVATAR_DEFAULT_IMG = "http://popgalaxy.com/media/images/popgalaxy_default_avatar.png"

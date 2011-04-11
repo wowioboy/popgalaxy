@@ -33,11 +33,17 @@ def home_page(request):
   auth = tweepy.OAuthHandler(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
   auth.set_access_token(settings.ACCESS_TOKEN, settings.ACCESS_SECRET)
   api = tweepy.API(auth)
-  pop_timeline = api.user_timeline() # PG's timeline
-  #mentions = api.mentions()	# PG's @mentions
-  dd_timeline = api.user_timeline('drunkduck') # DD's tweets
-  wowio_timeline = api.user_timeline('wowio') # WOWIO's tweets
-  wv_timeline = api.user_timeline('wevoltonline') # WEVolt's tweets
+  try:
+    pop_timeline = api.user_timeline() # PG's timeline
+    #mentions = api.mentions()	# PG's @mentions
+    dd_timeline = api.user_timeline('drunkduck') # DD's tweets
+    wowio_timeline = api.user_timeline('wowio') # WOWIO's tweets
+    wv_timeline = api.user_timeline('wevoltonline') # WEVolt's tweets
+  except:
+    pop_timeline = []
+    dd_timeline = []
+    wowio_timeline = []
+    wv_timeline = []
   tweets = {
     'pop_timeline':pop_timeline,
     'dd_timeline':dd_timeline,

@@ -9,7 +9,12 @@ body {
 */
 body{
     /*background: #dd6801 url('/media/images/promos/fandango_gt_pg_background.jpg') no-repeat center top;*/
+/*
 	-o-background-size: 1600px 963px;
 	-webkit-background-size: 1600px 963px;
-	background: url('/media/images/promos/studioW_scoutshonor_popgalaxy_background.jpg') no-repeat #ec6c20 center top;
+*/
+	-o-background-size: 1920px 963px;
+	-webkit-background-size: 1920px 963px;
+	/*background: url('/media/images/promos/studioW_scoutshonor_popgalaxy_background.jpg') no-repeat #ec6c20 center top;*/
+	background: url('/media/images/promos/vgm_pg_bg.jpg') no-repeat #000 center top;
 }
