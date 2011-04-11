@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Ack';
+	src: url('/media/fonts/acknowtt-webfont.eot');
+	src: local('☺'), url('/media/fonts/acknowtt-webfont.woff') format('woff'), url('/media/fonts/acknowtt-webfont.ttf') format('truetype'), url('/media/fonts/acknowtt-webfont.svg#webfonttiTCdUL1') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Rocky';
+	src: url('/media/fonts/rockwellstd-webfont.eot');
+	src: local('☺'), url('/media/fonts/rockwellstd-webfont.woff') format('woff'), url('/media/fonts/rockwellstd-webfont.ttf') format('truetype'), url('/media/fonts/rockwellstd-webfont.svg#webfontBFYJY5H5') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

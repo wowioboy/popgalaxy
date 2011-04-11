@@ -1,0 +1,508 @@
+/*===RESET===*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: url(/media/images/pagebg.svg) no-repeat #F4F3B7;
+	font-family: Rocky, sans-serif;
+	-o-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+}
+
+br.clearer{
+    clear:both;
+}
+br.clearer-right{
+    clear:right;
+}
+br.clearer-left{
+    clear:left;
+}
+
+#container {
+	width: 1040px;
+	margin: 0 auto;
+	z-index: 1000;
+}
+
+#header {
+	width: 1040px;
+	height: 257px;
+}
+
+#headerlogo a {
+	width: 322px;
+	height: 136px;
+	background: url(/media/images/headerlogo.png) no-repeat;
+	margin-top: 52px;
+	margin-left: 25px;
+	position: absolute;
+	z-index: 200;
+}
+
+#headerlogo a span {
+	display: none;
+}
+
+#adLeader {
+	width: 728px;
+	height: 90px;
+	background: #666 url(/media/images/adbg.png);
+	margin-top: 17px;
+	position: absolute;
+	margin-right: 0;
+	margin-left: 312px;
+	z-index: 300;
+}
+
+#headerheadlines {
+	width: 642px;
+	height: 52px;
+	background: #D62A27;
+	color: #fff;
+	font-family: Ack, sans-serif;
+	font-size: 30px;
+	margin-top: 134px;
+	margin-left: 347px;
+	position: absolute;
+	z-index: 100;
+	line-height: .5em;
+	padding-left: 8px;
+	padding-top: 2px;
+	overflow: hidden;
+}
+/*div#headerheadlines {
+	width: 642px;
+	height: 52px;
+	position: absolute;
+}*/
+
+#headernav {
+	width: 925px;
+	padding: 15px;
+	margin: 188px 42px 0;
+	background: #1B2023;
+	position: absolute;
+}
+
+ul#nav {
+	display: inline;
+	list-style: none;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+ul#nav li {
+	display: inline;
+}
+
+ul#nav li a {
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	text-align: center;
+	display: block;
+	color: #fff;
+	text-decoration: none;
+}
+
+ul#nav li a:hover {
+	background: #ddd;
+}
+
+ul#nav li a#videos {
+	width: 92px;
+}
+
+ul#nav li a#blog {
+	width: 79px;
+}
+
+#search {
+	display: inline;
+	color: #1B2023;
+}
+
+#searchbox {
+	width: 709px;
+	height: 34px;
+	line-height: .3em;
+	border: 2px solid #CCCCCC;
+	font-family: Ack, sans-serif;
+	color: #888688;
+	font-size: 30px;
+	padding-left: 40px;
+	background: url(/media/images/iconsearch.png) 8px 8px no-repeat #fff;
+}
+
+#content {
+	width: 955px;
+	margin: 0 auto;
+	background: #1B2023;
+}
+
+#maincol {
+	width: 625px;
+	float: left;
+}
+
+#videoPlayer {
+	margin-left: -15px;
+	width: 640px;
+	height: 360px;
+	background: #D62A27 url(/media/images/playerbg.png) no-repeat center;
+}
+
+
+
+#videoNowPlaying {
+	width: 610;
+	height: 45px;
+	overflow: hidden;
+	background: #94D0A5;
+	margin-left: 15px;
+	margin-top: 45px;
+	color: #fff;
+	font-weight: 18px;
+}
+
+#videoNowPlayingLabel {
+	padding: 10px;
+	float: left;
+	background: #94D0A5;
+	width: 90px;
+	font-size: 18px;
+	line-height: .9em;
+	text-align: right;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#videoNowPlayingTitle {
+	width: 480px;
+	padding: 10px;
+	font-size: 18px;
+	line-height: .9em;
+	float: left;
+	background: #559B7A;
+}
+
+.titleMain {
+	color: #F4F3B7;
+	font-weight: bold;
+}
+
+.titleSub {
+	font-size: 75%;
+}
+
+#videoNowPlayingClear{
+	clear: both;
+}
+
+#videoCarouselTop {
+	width: 640px;
+	background: url(/media/images/cornerleft.svg) no-repeat left;
+	height: 15px;
+	margin-left: -15px;
+}
+
+#videoCarousel {
+	margin-left: -15px;
+	margin-bottom: -15px;
+	height: 115px;
+	width: 640px;
+	background: #559B7A;
+	color: #94D0A5;
+	overflow: hidden;
+	display: block;
+}
+
+#sectionTitle {
+	background: #515151;
+	padding: 10px;
+	float: left;
+	/*background: #94D0A5;*/
+	width: 90px;
+	font-size: 18px;
+	line-height: .9em;
+	text-align: right;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.videothumbnail {
+	float: left;
+	display: inline;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.videothumbnailimage {
+	height: 34px;
+	width: 110px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 40px;
+	vertical-align: baseline;
+	overflow: none;
+	background: #1B2023;
+}
+
+.videothumbnailtitle {
+	font-weight: bold;
+	color: #fff;
+	font-size: 14px;
+}
+
+.videothumbnailtype {
+	margin-top: 4px;
+	font-size: 12px;
+}
+
+#sidecol {
+	width: 300px;
+	float: left;
+	margin-left: 15px;
+}
+
+#adBox {
+	width: 300px;
+	height: 250px;
+	background: #666 url(/media/images/adbg.png);
+}
+
+#feedTop {
+	width: 330px;
+	background: url(/media/images/cornerright.svg) no-repeat right;
+	height: 15px;
+	margin-right: -15px;
+}
+
+#feed {
+	margin-right: -15px;
+	margin-bottom: -15px;
+	background: #559B7A;
+	width: 330px;
+	height: 315px;
+}
+
+#feedHeader {
+	background: #94D0A5 url(/media/images/iconPGgreen.svg) 5px 5px no-repeat;
+	color: #fff;
+	text-transform: uppercase;
+	height: 15px;
+	overflow: hidden;
+	padding: 10px 10px 10px 55px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#feedBody {
+	height: 315px;
+	overflow: hidden;
+	position: relative;
+}
+
+#feedBody li {
+	width:305px;
+	font-size: 14px;
+	/*border-bottom: 1px solid #94D0A5;*/
+	color: #515151;
+	padding: 3px 0px 0px 0px;
+	height: 90px;
+	overflow: visible;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+
+#contentclear {
+	clear: both;
+}
+
+#connect {
+	width: 955px;
+	height: 60px;
+	margin: 0 auto;
+	background: url(/media/images/connect.svg);
+	-o-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+}
+
+#footer {
+	width: 955px;
+	margin: 0 auto 30px auto;
+	min-height: 310px;
+	background: url(/media/images/footerbg.png) no-repeat #1B2023 bottom right;
+}
+
+#footerHeader {
+	background: #4C4C4F url(/media/images/iconPGblack.svg) 5px 5px no-repeat;
+	color: #fff;
+	text-transform: uppercase;
+	height: 15px;
+	overflow: hidden;
+	padding: 10px 10px 10px 55px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* ZAP TWITTER STYLES -- BEGIN */
+#feed {
+	overflow: hidden;
+}
+
+#feedBody {
+	/*margin: 10px;*/
+}
+
+.tweet {
+	font-family: Verdana, sans-serif;
+	width: 310px;
+	line-height: .8em;
+}
+
+.tweet a {
+	background: #D62A27;
+	color: #fff;
+	text-decoration: none;
+}
+
+.tweet ul {
+	list-style: none;
+}
+
+.tweet li {
+	margin-bottom: 5px;
+	/*padding: 10px;*/
+	background: #94D0A5;
+	color: #1B2023;
+	/*border-bottom: 1px solid #000;*/
+}
+
+li .tweetText {
+	font-family: Verdana, sans-serif;
+	font-size: 14px;
+	padding-top: 5px;
+	/*line-height: .8em;*/
+}
+
+li .tweetScreenName, .tweetDate {
+	font-family: Ack, sans-serif;
+	display: block;
+}
+
+li .tweetScreenName {
+	font-size: 18px;
+}
+
+li .tweetDate {
+	font-size: 14px;
+	color: #fff;
+	clear: both;
+	margin: 10px 0 0 5px;
+}
+
+.tweetProfileIcon {
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.tweetProfileIcon img {
+	width: 32px;
+	height: 32px;
+}
+
+
+/* ZAP TWITTER STYLES -- END */
+
+
+/* Twitter Feed Styles -- BEGIN */
+.twitterFeed
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 300px;
+}
+.twitterFeed a
+{
+	color: #444;
+	text-decoration: none;
+}
+.twitterFeed a:hover
+{
+	color: #000;
+	text-decoration: underline;
+}
+.twitterFeed a img { border: none; }
+.twitterFeed img
+{
+	float: left;
+	margin: 0 1em 1em 0;
+	/*width: 14px;
+	height: 14px;*/
+}
+
+.twitterHeader { padding: 0.2em 0; }
+.twitterHeader span
+{
+	font-weight: bold;
+	font-size: 2.2em;
+}
+
+.twitterBody
+{
+	clear: left;
+	height: 300px;
+	/*border: 4px solid #666;*/
+}
+.twitterRow p a { text-decoration: underline; }
+.twitterRow p a:hover { text-decoration: none; }
+.twitterRow img, .twitterRow h4, .twitterRow div
+{
+	margin: 0;
+	padding: 0.3em;
+}
+/*.twitterRow p { margin-left: 70px; padding-bottom: 0.5em; }*/
+.twitterRow p { line-height: 15px; padding-left: 0.5em; padding-bottom: 5px; }
+
+.tweetName a, .tweetTime
+{
+	font-weight: bold;
+	color: #444;
+}
+.tweetName
+{
+	float: left;
+	font-size: 1.2em;
+}
+.tweetTime { 
+	float: left; 
+	text-align: left;
+	width: 50px;
+}
+/* END */
